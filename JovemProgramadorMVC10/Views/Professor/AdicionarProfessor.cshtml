@@ -1,0 +1,41 @@
+﻿@model Professor
+
+@{
+    ViewData["Title"] = "Cadastrar professor";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+    <div class="mb-5 text-center">
+        <h1 class="text-light">Cadastro de professores</h1>
+    </div>
+
+    <form asp-controller="Professor" asp-action="InserirProfessor" method="post">
+
+        <div class="mb-3">
+            <label class="form-label">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control" placeholder="Insira o nome do professor">
+            <span class="text-danger" asp-validation-for="Nome"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Disciplina</label>
+            <input type="text" asp-for="Disciplina" class="form-control" placeholder="Insira a disciplina do professor">
+            <span class="text-danger" asp-validation-for="Disciplina"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Cpf</label>
+            <input type="text" asp-for="Cpf" class="form-control" placeholder="Insira o CPF do professor">
+            <span class="text-danger" asp-validation-for="Cpf"></span>
+        </div>
+
+        <div class="d-flex gap-5 mt-5">
+            @*Botão Cadastrar*@
+            <button type="submit" class="btn btn-primary w-50">Cadastrar</button>
+            @*Botão Voltar*@
+            <a class="btn btn-primary w-50" asp-controller="Professor" asp-action="Index">Voltar</a>
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,36 @@
+﻿@model List<Aluno>
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-5">
+        <h1>Alunos</h1>
+        <a class="btn btn-primary mx-2" type="button" asp-controller="Aluno" asp-action="AdicionarAluno">Cadastrar novo aluno</a>
+    </div>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Matricula</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Cpf</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (Aluno aluno in Model)
+                {
+                    <tr>
+                        <td>@aluno.Matricula </td>
+                        <td>@aluno.Nome </td>
+                        <td>@aluno.Cpf </td>
+                        <td>
+                            <a type="submit" class="btn btn-warning mx-2" role="button" asp-controller="Aluno" asp-action="Editar" asp-route-id="@aluno.Id"><i class="bi bi-pen mx-2"></i>Editar</a>
+                            <a type="submit" class="btn btn-danger mx-2" role="button" asp-controller="Aluno" asp-action="ExcluirAluno" asp-route-id="@aluno.Id"><i class="bi bi-trash3 mx-2"></i>Excluir</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

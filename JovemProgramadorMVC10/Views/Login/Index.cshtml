@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="d-flex justify-content-center align-items-center min-vh-100">
+        <div class="login-box bg-light p-5 rounded">
+            <h1 class="text-center mb-4">Login</h1>
+            <form class="login" method="post" asp-controller="Login" asp-action="ValidarLogin">
+                <div class="mb-3">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="inputPassword4" class="form-label">Senha</label>
+                    <input type="password" class="form-control" id="inputPassword4" name="senha" required>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">Entrar</button>
+                    <button class="btn btn-cadastro" type="button">Cadastre-se</button>
+                </div>
+                @* Mensagem de erro *@
+                @if (!ViewData.ModelState.IsValid)
+                {
+                    <div style="color: red;">
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <p>@error.ErrorMessage</p>
+                        }
+                    </div>
+                }
+            </form>
+        </div>
+    </div>
+</div>

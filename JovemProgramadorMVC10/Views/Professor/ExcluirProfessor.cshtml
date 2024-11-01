@@ -1,0 +1,41 @@
+﻿@model Professor
+
+@{
+    ViewData["Title"] = "Excluir professor";
+}
+
+<div class="container bg-dark p-5 rounded-5">
+    <div class="mb-5 text-center">
+        <h1 class="text-light">Excluir aluno</h1>
+    </div>
+
+    <form asp-controller="Professor" asp-action="ExcluirProfessor" method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <h2 class="text-warning">Tem certeza que deseja excluir o registro?</h2>
+
+        <div class="mb-3">
+            <label class="form-label text-light">Nome</label>
+            <input type="text" asp-for="Nome" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-light">Disciplina</label>
+            <input type="text" asp-for="Disciplina" class="form-control ">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label text-light">Cpf</label>
+            <input type="text" asp-for="Cpf" class="form-control ">
+        </div>
+
+        <div class="text-center d-flex gap-5 mt-5">
+            @*Botão Excluir*@
+            <button type="submit" class="btn btn-danger w-50">Excluir</button>
+            @*Botão Voltar*@
+            <a class="btn btn-primary w-50" asp-controller="Professor" asp-action="Index">Voltar</a>
+        </div>
+    </form>
+
+</div>
